@@ -13,9 +13,8 @@ const MainFeature = ({ selectedFarm }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    if (!selectedFarm) return;
-    
+useEffect(() => {
+    if (!selectedFarm?.id) return;
     const loadData = async () => {
       setLoading(true);
       setError(null);

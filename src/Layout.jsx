@@ -2,32 +2,26 @@ import { useState, useEffect } from 'react';
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { format } from 'date-fns';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import ApperIcon from './components/ApperIcon';
 import { routes } from './config/routes';
-import farmService from './services/api/farmService';
+import { loadFarms, setSelectedFarm } from './store/farmSlice';
 import weatherService from './services/api/weatherService';
 
 const Layout = () => {
+  const dispatch = useDispatch();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [farms, setFarms] = useState([]);
-  const [selectedFarm, setSelectedFarm] = useState(null);
   const [weather, setWeather] = useState(null);
   const location = useLocation();
 
+// Get farm state from Redux
+  const { farms, selectedFarm, loading: farmsLoading, error: farmsError } = useSelector((state) => state.farm);
+
   useEffect(() => {
-    const loadFarms = async () => {
-      try {
-        const farmData = await farmService.getAll();
-        setFarms(farmData);
-        if (farmData.length > 0) {
-          setSelectedFarm(farmData[0]);
-        }
-      } catch (error) {
-        console.error('Failed to load farms:', error);
-      }
-    };
-    loadFarms();
-  }, []);
+    // Load farms on component mount
+    dispatch(loadFarms());
+  }, [dispatch]);
 
   useEffect(() => {
     const loadWeather = async () => {
@@ -41,7 +35,7 @@ const Layout = () => {
     loadWeather();
   }, []);
 
-const navigationItems = [
+  const navigationItems = [
     routes.dashboard,
     routes.farms,
     routes.crops,
@@ -50,6 +44,17 @@ const navigationItems = [
     routes.weather
   ];
 
+  const handleFarmChange = (farmId) => {
+    const farm = farms.find(f => f.id === farmId);
+    if (farm) {
+      dispatch(setSelectedFarm(farm));
+      toast.success(`Switched to ${farm.name}`);
+    }
+  };
+
+  const handleRetryLoadFarms = () => {
+    dispatch(loadFarms());
+  };
   const isCurrentRoute = (path) => {
     if (path === '/dashboard' && location.pathname === '/') return true;
     return location.pathname === path;
@@ -68,31 +73,61 @@ const navigationItems = [
             <ApperIcon name="Menu" size={20} />
           </button>
 
-          {/* Logo and Farm Selector */}
+{/* Logo and Farm Selector */}
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
               <ApperIcon name="Wheat" size={24} className="text-primary" />
               <span className="font-heading font-bold text-xl text-gray-900">CropKeeper</span>
             </div>
             
-            {farms.length > 0 && (
-              <div className="hidden sm:block">
-                <select
-                  value={selectedFarm?.id || ''}
-                  onChange={(e) => {
-                    const farm = farms.find(f => f.id === e.target.value);
-                    setSelectedFarm(farm);
-                  }}
-                  className="px-3 py-1 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                >
-                  {farms.map((farm) => (
-                    <option key={farm.id} value={farm.id}>
-                      {farm.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
+            {/* Farm Selector */}
+            <div className="hidden sm:block">
+              {farmsLoading ? (
+                <div className="flex items-center space-x-2 px-3 py-1 bg-gray-100 rounded-md">
+                  <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+                  <span className="text-sm text-gray-600">Loading farms...</span>
+                </div>
+              ) : farmsError ? (
+                <div className="flex items-center space-x-2">
+                  <div className="px-3 py-1 bg-error/10 text-error rounded-md text-sm">
+                    <ApperIcon name="AlertCircle" size={16} className="inline mr-1" />
+                    Failed to load farms
+                  </div>
+                  <button
+                    onClick={handleRetryLoadFarms}
+                    className="px-2 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded transition-colors"
+                    title="Retry loading farms"
+                  >
+                    Retry
+                  </button>
+                </div>
+              ) : farms.length > 0 ? (
+                <div className="flex items-center space-x-2">
+                  <select
+                    value={selectedFarm?.id || ''}
+                    onChange={(e) => handleFarmChange(e.target.value)}
+                    className="px-3 py-1 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-white"
+                  >
+                    {farms.map((farm) => (
+                      <option key={farm.id} value={farm.id}>
+                        {farm.name}
+                      </option>
+                    ))}
+                  </select>
+                  {selectedFarm && (
+                    <div className="flex items-center space-x-1 px-2 py-1 bg-success/10 text-success rounded text-xs">
+                      <ApperIcon name="CheckCircle" size={12} />
+                      <span>Active</span>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="px-3 py-1 bg-warning/10 text-warning rounded-md text-sm">
+                  <ApperIcon name="Info" size={16} className="inline mr-1" />
+                  No farms available
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Weather and Date */}
@@ -193,7 +228,7 @@ const navigationItems = [
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.2 }}
           >
-            <Outlet context={{ selectedFarm, farms }} />
+<Outlet context={{ selectedFarm, farms, farmsLoading, farmsError }} />
           </motion.div>
         </main>
       </div>
