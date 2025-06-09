@@ -1,10 +1,10 @@
 import Home from '../pages/Home';
 import Dashboard from '../pages/Dashboard';
 import Crops from '../pages/Crops';
+import Farms from '../pages/Farms';
 import Tasks from '../pages/Tasks';
 import Expenses from '../pages/Expenses';
 import Weather from '../pages/Weather';
-
 export const routes = {
   home: {
     id: 'home',
@@ -47,6 +47,13 @@ export const routes = {
     path: '/weather',
     icon: 'Cloud',
     component: Weather
+},
+  farms: {
+    id: 'farms',
+    label: 'Farms',
+    path: '/farms',
+    icon: 'Home',
+    component: Farms
   }
 };
 
