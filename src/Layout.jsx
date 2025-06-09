@@ -41,8 +41,9 @@ const Layout = () => {
     loadWeather();
   }, []);
 
-  const navigationItems = [
+const navigationItems = [
     routes.dashboard,
+    routes.farms,
     routes.crops,
     routes.tasks,
     routes.expenses,

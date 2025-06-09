@@ -48,11 +48,11 @@ export const routes = {
     icon: 'Cloud',
     component: Weather
 },
-  farms: {
+farms: {
     id: 'farms',
     label: 'Farms',
     path: '/farms',
-    icon: 'Home',
+    icon: 'Barn',
     component: Farms
   }
 };
