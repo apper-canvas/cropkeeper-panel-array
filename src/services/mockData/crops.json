@@ -1,0 +1,57 @@
+[
+  {
+    "id": "1",
+    "farmId": "1",
+    "name": "Tomatoes",
+    "variety": "Cherokee Purple",
+    "plantedDate": "2024-04-15T00:00:00Z",
+    "expectedHarvestDate": "2024-07-15T00:00:00Z",
+    "status": "growing",
+    "area": 2.5,
+    "notes": "Disease-resistant variety, planted in raised beds with drip irrigation"
+  },
+  {
+    "id": "2",
+    "farmId": "1",
+    "name": "Corn",
+    "variety": "Sweet Corn Golden Bantam",
+    "plantedDate": "2024-05-01T00:00:00Z",
+    "expectedHarvestDate": "2024-08-15T00:00:00Z",
+    "status": "growing",
+    "area": 8.0,
+    "notes": "Succession planted every 2 weeks for extended harvest"
+  },
+  {
+    "id": "3",
+    "farmId": "1",
+    "name": "Lettuce",
+    "variety": "Buttercrunch",
+    "plantedDate": "2024-03-20T00:00:00Z",
+    "expectedHarvestDate": "2024-05-01T00:00:00Z",
+    "status": "harvested",
+    "area": 1.2,
+    "notes": "Cool season crop, harvested successfully before heat stress"
+  },
+  {
+    "id": "4",
+    "farmId": "2",
+    "name": "Wheat",
+    "variety": "Hard Red Winter",
+    "plantedDate": "2024-10-15T00:00:00Z",
+    "expectedHarvestDate": "2024-07-01T00:00:00Z",
+    "status": "planted",
+    "area": 15.0,
+    "notes": "Organic certified field, no synthetic fertilizers used"
+  },
+  {
+    "id": "5",
+    "farmId": "2",
+    "name": "Carrots",
+    "variety": "Nantes",
+    "plantedDate": "2024-04-10T00:00:00Z",
+    "expectedHarvestDate": "2024-06-20T00:00:00Z",
+    "status": "ready",
+    "area": 0.8,
+    "notes": "Sandy soil perfect for straight carrot growth"
+  }
+]

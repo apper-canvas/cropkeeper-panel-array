@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "farmId": "1",
+    "category": "seeds",
+    "amount": 125.50,
+    "description": "Cherokee Purple tomato seeds (10 packets)",
+    "date": "2024-12-15T00:00:00Z",
+    "vendor": "Heirloom Seeds Co."
+  },
+  {
+    "id": "2",
+    "farmId": "1",
+    "category": "fertilizer",
+    "amount": 89.99,
+    "description": "Organic compost fertilizer (50 lb bags x3)",
+    "date": "2024-12-18T00:00:00Z",
+    "vendor": "Garden Supply Store"
+  },
+  {
+    "id": "3",
+    "farmId": "1",
+    "category": "equipment",
+    "amount": 245.00,
+    "description": "Drip irrigation timer and fittings",
+    "date": "2024-12-20T00:00:00Z",
+    "vendor": "Irrigation Depot"
+  },
+  {
+    "id": "4",
+    "farmId": "1",
+    "category": "labor",
+    "amount": 320.00,
+    "description": "Farm hand wages - 2 days cultivation work",
+    "date": "2024-12-22T00:00:00Z",
+    "vendor": "Local Labor"
+  },
+  {
+    "id": "5",
+    "farmId": "2",
+    "category": "seeds",
+    "amount": 180.75,
+    "description": "Hard Red Winter wheat seed (100 lbs)",
+    "date": "2024-12-10T00:00:00Z",
+    "vendor": "Prairie Seed Company"
+  },
+  {
+    "id": "6",
+    "farmId": "2",
+    "category": "fuel",
+    "amount": 156.80,
+    "description": "Diesel fuel for tractor operations",
+    "date": "2024-12-23T00:00:00Z",
+    "vendor": "Farm Fuel Co-op"
+  },
+  {
+    "id": "7",
+    "farmId": "1",
+    "category": "maintenance",
+    "amount": 75.25,
+    "description": "Replacement parts for greenhouse fans",
+    "date": "2024-11-28T00:00:00Z",
+    "vendor": "Greenhouse Supply"
+  },
+  {
+    "id": "8",
+    "farmId": "2",
+    "category": "other",
+    "amount": 45.00,
+    "description": "Soil testing kit and pH strips",
+    "date": "2024-11-15T00:00:00Z",
+    "vendor": "Agri-Test Labs"
+  }
+]

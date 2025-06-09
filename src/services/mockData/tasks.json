@@ -1,0 +1,68 @@
+[
+  {
+    "id": "1",
+    "farmId": "1",
+    "cropId": "1",
+    "title": "Water tomato plants",
+    "type": "watering",
+    "dueDate": "2024-12-28T08:00:00Z",
+    "priority": "high",
+    "completed": false,
+    "completedDate": null
+  },
+  {
+    "id": "2",
+    "farmId": "1",
+    "cropId": "2",
+    "title": "Apply organic fertilizer to corn",
+    "type": "fertilizing",
+    "dueDate": "2024-12-30T10:00:00Z",
+    "priority": "medium",
+    "completed": false,
+    "completedDate": null
+  },
+  {
+    "id": "3",
+    "farmId": "1",
+    "cropId": "1",
+    "title": "Prune tomato suckers",
+    "type": "other",
+    "dueDate": "2024-12-25T14:00:00Z",
+    "priority": "medium",
+    "completed": true,
+    "completedDate": "2024-12-25T15:30:00Z"
+  },
+  {
+    "id": "4",
+    "farmId": "1",
+    "cropId": null,
+    "title": "Repair irrigation system",
+    "type": "other",
+    "dueDate": "2024-12-29T09:00:00Z",
+    "priority": "high",
+    "completed": false,
+    "completedDate": null
+  },
+  {
+    "id": "5",
+    "farmId": "2",
+    "cropId": "5",
+    "title": "Harvest carrots",
+    "type": "harvesting",
+    "dueDate": "2024-12-27T16:00:00Z",
+    "priority": "high",
+    "completed": false,
+    "completedDate": null
+  },
+  {
+    "id": "6",
+    "farmId": "2",
+    "cropId": "4",
+    "title": "Check wheat for pests",
+    "type": "other",
+    "dueDate": "2025-01-02T11:00:00Z",
+    "priority": "medium",
+    "completed": false,
+    "completedDate": null
+  }
+]

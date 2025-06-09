@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "name": "Green Valley Farm",
+    "size": 45.5,
+    "sizeUnit": "acres",
+    "location": "Riverside County, CA",
+    "createdAt": "2024-01-15T08:00:00Z"
+  },
+  {
+    "id": "2",
+    "name": "Sunset Organic Ranch",
+    "size": 32.8,
+    "sizeUnit": "acres",
+    "location": "Sonoma County, CA",
+    "createdAt": "2024-02-20T10:30:00Z"
+  },
+  {
+    "id": "3",
+    "name": "Prairie Wind Farms",
+    "size": 78.2,
+    "sizeUnit": "acres",
+    "location": "Lancaster County, PA",
+    "createdAt": "2024-03-10T14:15:00Z"
+  }
+]

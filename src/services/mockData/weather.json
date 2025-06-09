@@ -1,0 +1,60 @@
+{
+  "current": {
+    "location": "Farm Location",
+    "temperature": 72,
+    "feelsLike": 75,
+    "condition": "Partly Cloudy",
+    "humidity": 65,
+    "windSpeed": 8,
+    "precipitation": 0.0,
+    "uvIndex": 6
+  },
+  "forecast": [
+    {
+      "date": "2024-12-27T00:00:00Z",
+      "condition": "Partly Cloudy",
+      "highTemp": 74,
+      "lowTemp": 58,
+      "precipitation": 0.1,
+      "humidity": 68,
+      "windSpeed": 7
+    },
+    {
+      "date": "2024-12-28T00:00:00Z",
+      "condition": "Sunny",
+      "highTemp": 78,
+      "lowTemp": 61,
+      "precipitation": 0.0,
+      "humidity": 55,
+      "windSpeed": 5
+    },
+    {
+      "date": "2024-12-29T00:00:00Z",
+      "condition": "Cloudy",
+      "highTemp": 71,
+      "lowTemp": 59,
+      "precipitation": 0.3,
+      "humidity": 72,
+      "windSpeed": 12
+    },
+    {
+      "date": "2024-12-30T00:00:00Z",
+      "condition": "Rainy",
+      "highTemp": 68,
+      "lowTemp": 55,
+      "precipitation": 0.8,
+      "humidity": 85,
+      "windSpeed": 15
+    },
+    {
+      "date": "2024-12-31T00:00:00Z",
+      "condition": "Partly Cloudy",
+      "highTemp": 73,
+      "lowTemp": 57,
+      "precipitation": 0.2,
+      "humidity": 70,
+      "windSpeed": 9
+    }
+  ],
+  "alerts": []
+}
