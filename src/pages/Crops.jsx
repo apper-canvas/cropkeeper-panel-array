@@ -74,15 +74,15 @@ const Crops = () => {
     }
   };
 
-  const handleEdit = (crop) => {
+const handleEdit = (crop) => {
     setEditingCrop(crop);
     setFormData({
-      name: crop.name,
-      variety: crop.variety,
-      plantedDate: crop.plantedDate.split('T')[0],
-      expectedHarvestDate: crop.expectedHarvestDate.split('T')[0],
-      status: crop.status,
-      area: crop.area.toString(),
+      name: crop.name || '',
+      variety: crop.variety || '',
+      plantedDate: crop.plantedDate ? crop.plantedDate.split('T')[0] : '',
+      expectedHarvestDate: crop.expectedHarvestDate ? crop.expectedHarvestDate.split('T')[0] : '',
+      status: crop.status || 'planted',
+      area: crop.area?.toString() || '',
       notes: crop.notes || ''
     });
     setShowForm(true);
@@ -387,13 +387,13 @@ const Crops = () => {
                 <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(crop.status)}`}>
                   {crop.status}
                 </span>
-              </div>
+</div>
 
               <div className="space-y-2 mb-4">
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-500">Planted:</span>
                   <span className="text-gray-900">
-                    {format(new Date(crop.plantedDate), 'MMM dd, yyyy')}
+                    {crop.plantedDate ? format(new Date(crop.plantedDate), 'MMM dd, yyyy') : 'Not set'}
                   </span>
                 </div>
                 {crop.expectedHarvestDate && (
@@ -404,20 +404,19 @@ const Crops = () => {
                     </span>
                   </div>
                 )}
-                {crop.area > 0 && (
+{crop.area > 0 && (
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-500">Area:</span>
-                    <span className="text-gray-900">{crop.area} acres</span>
+                    <span className="text-gray-900">{crop.area || 0} acres</span>
                   </div>
                 )}
               </div>
 
-              {crop.notes && (
+{crop.notes && (
                 <p className="text-sm text-gray-600 mb-4 bg-gray-50 p-2 rounded">
                   {crop.notes}
                 </p>
               )}
-
               <div className="flex space-x-2">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
